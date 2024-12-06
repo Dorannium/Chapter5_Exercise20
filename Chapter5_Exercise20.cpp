@@ -12,23 +12,25 @@ The program should use a loop that repeats until the user correctly guesses the 
 
 #include <iostream>
 #include <cstdlib> 
-#include <ctime> 
+#include <ctime>   
 using namespace std;
 
 int main() {
-    
+ 
     srand(static_cast<unsigned int>(time(0)));
 
     int randomNumber = rand() % 100 + 1;
     int userGuess = 0;
+    int guessCount = 0; 
 
-    cout << "Welcome to the Number Guessing Game!\n";
+    cout << "Welcome to the Enhanced Number Guessing Game!\n";
     cout << "I have chosen a number between 1 and 100.\n";
     cout << "Try to guess what it is!\n";
 
     while (userGuess != randomNumber) {
         cout << "Enter your guess: ";
         cin >> userGuess;
+        guessCount++; 
 
         if (userGuess > randomNumber) {
             cout << "Too high, try again.\n";
@@ -38,11 +40,13 @@ int main() {
         }
         else {
             cout << "Congratulations! You guessed the correct number: " << randomNumber << "!\n";
+            cout << "It took you " << guessCount << " guesses to find the number.\n";
         }
     }
 
     return 0;
 }
+
 
 
 
